@@ -11,7 +11,7 @@ const getPlayerChoice = () => {
     choice = prompt(
       'What is your choice: rock, paper, or scissors?'
     ).toLowerCase()
-  while (choice !== ('rock' || 'paper' || 'scissors'))
+  while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors')
   return choice
 }
 
@@ -26,9 +26,9 @@ const determineWinner = (computerChoice, playerChoice) => {
   } else if (computerChoice === 'paper' && playerChoice === 'scissors') {
     winner = 'player'
   } else if (computerChoice === 'scissors' && playerChoice === 'paper') {
-    winner = 'player'
-  } else if (computerChoice === 'scissors' && playerChoice === 'rock') {
     winner = 'computer'
+  } else if (computerChoice === 'scissors' && playerChoice === 'rock') {
+    winner = 'player'
   } else {
     winner = 'tie'
   }
@@ -42,6 +42,10 @@ const determineWinner = (computerChoice, playerChoice) => {
   }
 }
 
-console.log(determineWinner(getComputerChoice(), getPlayerChoice()))
-console.log(determineWinner(getComputerChoice(), getPlayerChoice()))
-console.log(determineWinner(getComputerChoice(), getPlayerChoice()))
+const game = () => {
+  for (i = 0; i < 5; i++) {
+    console.log(determineWinner(getComputerChoice(), getPlayerChoice()))
+  }
+}
+
+game()
