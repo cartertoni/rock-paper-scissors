@@ -1,3 +1,7 @@
+let playerWins = 0
+let computerWins = 0
+let ties = 0
+
 const getComputerChoice = () => {
   let random = Math.floor(Math.random() * 3)
   if (random === 0) return 'rock'
@@ -34,10 +38,13 @@ const determineWinner = (computerChoice, playerChoice) => {
   }
 
   if (winner === 'player') {
+    playerWins += 1
     return `You win! ${playerChoice} beats ${computerChoice}`
   } else if (winner === 'computer') {
+    computerWins += 1
     return `You lose! ${computerChoice} beats ${playerChoice}`
   } else {
+    ties += 1
     return `Tie! ${computerChoice} ties ${playerChoice}`
   }
 }
@@ -46,6 +53,9 @@ const game = () => {
   for (i = 0; i < 5; i++) {
     console.log(determineWinner(getComputerChoice(), getPlayerChoice()))
   }
+  console.log(
+    `GAME OVER! \nPlayer wins: ${playerWins} \nComputer wins: ${computerWins} \nTies: ${ties}`
+  )
 }
 
 game()
