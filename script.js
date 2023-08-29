@@ -9,6 +9,16 @@ const getComputerChoice = () => {
   else return 'scissors'
 }
 
+// const getPlayerChoice = () => {
+//   let choice
+//   do
+//     choice = prompt(
+//       'What is your choice: rock, paper, or scissors?'
+//     ).toLowerCase()
+//   while (choice !== 'rock' && choice !== 'paper' && choice !== 'scissors')
+//   return choice
+// }
+
 const determineWinner = (computerChoice, playerChoice) => {
   let winner
   if (computerChoice === 'rock' && playerChoice === 'paper') {
@@ -53,7 +63,7 @@ const checkForMatchWinner = message => {
     updateDOM(`Player has won the match!`)
     endMatch()
   } else if (computerWins === 5) {
-    updateDom(`Computer has won the match!`)
+    updateDOM(`Computer has won the match!`)
     endMatch()
   } else updateDOM(message)
 }
